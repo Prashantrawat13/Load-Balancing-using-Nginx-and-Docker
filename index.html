@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prashant Rawat | Cloud & DevOps Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      transition: 0.3s ease;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #0f172a
+      );
+      padding-top: 100px;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text h1 span {
+      color: #38bdf8;
+    }
+
+    .hero-text p {
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      background: #0ea5e9;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 2px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .btn-secondary:hover {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .hero-card {
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .hero-card h3 {
+      color: #38bdf8;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card p {
+      margin-bottom: 0.8rem;
+      color: #cbd5e1;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: #38bdf8;
+    }
+
+    .section-title p {
+      color: #94a3b8;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: #1e293b;
+      padding: 1.5rem;
+      border-radius: 15px;
+      transition: 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: #38bdf8;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #1e293b;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      color: #38bdf8;
+      margin-bottom: 1rem;
+    }
+
+    .project-content p {
+      color: #cbd5e1;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: #0f172a;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #38bdf8;
+      border: 1px solid rgba(56,189,248,0.3);
+    }
+
+    /* Experience */
+    .timeline {
+      border-left: 3px solid #38bdf8;
+      padding-left: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.7rem;
+      top: 5px;
+      width: 15px;
+      height: 15px;
+      background: #38bdf8;
+      border-radius: 50%;
+    }
+
+    .timeline-item h3 {
+      color: #38bdf8;
+    }
+
+    .timeline-item p {
+      color: #cbd5e1;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin-bottom: 1.5rem;
+      color: #cbd5e1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #94a3b8;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container nav-container">
+      <div class="logo">CloudPortfolio</div>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="about">
+    <div class="container hero-content">
+
+      <div class="hero-text">
+        <h1>
+          Hi, I'm <span>Prashant Rawat</span><br>
+          Cloud & DevOps Engineer
+        </h1>
+
+        <p>
+          Passionate Cloud and DevOps Engineer specializing in AWS,
+          Kubernetes, Docker, CI/CD pipelines, Infrastructure as Code,
+          and scalable cloud-native solutions.
+        </p>
+
+        <div class="btn-group">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="resume.pdf" class="btn btn-secondary" download>
+            Download Resume
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Quick Overview</h3>
+
+        <p>☁️ AWS </p>
+        <p>🐳 Docker & Kubernetes</p>
+        <p>⚙️ Jenkins / GitHub Actions</p>
+        <p>📦 Terraform & Ansible</p>
+        <p>📈 Monitoring & Logging</p>
+        <p>🔒 DevSecOps & Automation</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Technical Skills</h2>
+        <p>Technologies and tools I work with</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3>Cloud Platforms</h3>
+          <p>AWS</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Containerization</h3>
+          <p>Docker, Kubernetes</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>CI/CD</h3>
+          <p>Jenkins, GitHub Actions, Circle CI</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Infrastructure as Code</h3>
+          <p>Terraform, Ansible, CloudFormation</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Monitoring</h3>
+          <p>Prometheus, Grafana</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Programming</h3>
+          <p>Bash, Python, YAML, Linux</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>Highlighted DevOps and Cloud projects</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Kubernetes Deployment Pipeline</h3>
+            <p>
+              Built automated CI/CD pipelines using Jenkins, Docker,
+              and Kubernetes for scalable application deployment.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Jenkins</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h3>AWS Infrastructure Automation</h3>
+            <p>
+              Automated AWS infrastructure provisioning using Terraform
+              with secure and reusable infrastructure modules.
+            </p>
+
+            <div class="tags">
+              <span class="tag">AWS</span>
+              <span class="tag">Terraform</span>
+              <span class="tag">IaC</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h3>Monitoring & Alerting Stack</h3>
+            <p>
+              Implemented monitoring dashboards and alerting systems
+              using Prometheus and Grafana.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Prometheus</span>
+              <span class="tag">Grafana</span>
+              <span class="tag">Monitoring</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Experience</h2>
+        <p>Professional journey and achievements</p>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>DevOps Engineer</h3>
+          <p><strong>Fresher</strong> | 2024 - Present</p>
+          <p>
+            Managed cloud infrastructure, automated deployments,
+            and improved CI/CD efficiency across multiple environments.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Cloud Engineer Intern</h3>
+          <p><strong>Fresher</strong> | 2023 - 2024</p>
+          <p>
+            Assisted in AWS migration projects and infrastructure monitoring.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container contact">
+
+      <div class="section-title">
+        <h2>Contact Me</h2>
+        <p>Let's connect and build something amazing</p>
+      </div>
+
+      <p>Email: prashantrawat733@gmail.com</p>
+      <p>LinkedIn: <linkedin class="com">
+      <in>
+      <prashantrawat13>Prashantrawat13</prashantrawat13></p>
+      <p>GitHub: <github class="com">
+      <prashantrawat13>Prashantrawat13</prashantrawat13></p>
+
+      <a href="mailto:prashantrawat733@gmail.com" class="btn btn-primary">
+        Send Email
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Prashant Rawat | Cloud & DevOps Portfolio</p>
+    </div>
+  </footer>
+
+</body>
+</html>
